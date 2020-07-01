@@ -19,9 +19,10 @@
 
     <platform name="ios">
 
+        <preference name="IOS_INIT_ON_LOAD" default="true" />
         <config-file target="config.xml" parent="/widget">
             <feature name="BLE">
-                <param name="ios-package" value="BLECentralPlugin" onload="true"/>
+                <param name="ios-package" value="BLECentralPlugin" onload="$IOS_INIT_ON_LOAD"/>
             </feature>
         </config-file>
 
@@ -58,7 +59,9 @@
         </config-file>
 
         <config-file target="AndroidManifest.xml" parent="/manifest">
-            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+            <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
             <uses-permission android:name="android.permission.BLUETOOTH"/>
             <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
         </config-file>
